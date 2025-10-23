@@ -11,19 +11,20 @@ import javax.servlet.http.HttpServletResponse;
 public class RegisterServlet extends HttpServlet {
     private String db_schema = "webdev";
 
-//    private String jdbcConnection = "jdbc:mysql://localhost:3306/";
+    private String jdbcConnection = "jdbc:mysql://localhost:3306/";
     private String db_userTable = "user";
 
-    private String jdbcConnection = "jdbc:mysql://192.168.178.145:3306/";
-    private String db_user = "webdevass1";
-    private String db_password = "webdevelopmentassignment";
-//    private String db_user = "root";
-//    String db_password = "@admin2110";
-    private Connection connect;
+//    private String jdbcConnection = "jdbc:mysql://192.168.178.145:3306/";
+//    private String db_user = "webdevass1";
+//    private String db_password = "webdevelopmentassignment";
+    private String db_user = "root";
+    String db_password = "@admin2110";
+    private final Connection connect;
 
     public RegisterServlet() throws SQLException {
-        System.out.println("Connection Established");
+        System.out.println("Connecting");
         connect = DriverManager.getConnection(jdbcConnection + db_schema, db_user, db_password);
+        System.out.println("Connection Established");
     }
 
     @Override
@@ -33,14 +34,26 @@ public class RegisterServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        System.out.println("doPost Method");
         response.setContentType("text/html");
+        System.out.println("created text/html");
         String firstname = request.getParameter("fname");
+        System.out.println("created name");
         String lastname = request.getParameter("lname");
+        System.out.println("created last name");
         String username = request.getParameter("username");
+        System.out.println("created username");
         String password = request.getParameter("password");
+        System.out.println("created password");
+        String confirmPassword = request.getParameter("cpassword");
+        System.out.println("created cpassword");
 
-
+//        if (password.equals(confirmPassword)){
+//
+//        }
+        System.out.println("Entering PrintWriter");
         PrintWriter out = response.getWriter();
+        System.out.println("create html content");
         out.println("<html>");
         out.println("<body>");
         out.println("<h1>"+ firstname +" susccessfully registered</h1");
@@ -55,11 +68,12 @@ public class RegisterServlet extends HttpServlet {
         }
     }
 
+
     public void databaseConnection(String firstname, String lastname, String username,String password) throws SQLException {
         System.out.println("Creating User Object");
         User newUser = new User(firstname, lastname, username, password);
         System.out.println("Entering Data to Table");
-        createUser(preparedStatement(connect), newUser);
+        createUser(preparedStatement(this.connect), newUser);
         System.out.println("Data successfully stored");
     }
 
@@ -89,6 +103,7 @@ public class RegisterServlet extends HttpServlet {
         String username;
         String password;
         String balance;
+        System.out.println("Retrieving Records");
         while (rs.next()) {
             fname = rs.getString(1);
             lname = rs.getString(2);

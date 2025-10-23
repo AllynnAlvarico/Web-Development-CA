@@ -7,7 +7,7 @@
              version="3.0">
     <servlet>
         <servlet-name>RegisterServlet</servlet-name>
-        <servlet-class>alvarico.allynn.service.RegisterServlet</servlet-class>
+        <servlet-class>alvarico.allynn.RegisterServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
