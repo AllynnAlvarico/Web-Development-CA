@@ -48,26 +48,30 @@ public class RegisterServlet extends HttpServlet {
         String confirmPassword = request.getParameter("cpassword");
         System.out.println("created cpassword");
 
-//        if (password.equals(confirmPassword)){
-//
-//        }
+
         System.out.println("Entering PrintWriter");
         PrintWriter out = response.getWriter();
         System.out.println("create html content");
         out.println("<html>");
         out.println("<body>");
-        out.println("<h1>"+ firstname +" susccessfully registered</h1");
-        out.println("</body>");
 
-        try {
-            databaseConnection(firstname, lastname, username, password);
-        } catch (SQLException e) {
-            out.println(e);
-            displayError(e);
-            throw new RuntimeException(e);
+        if (password.equals(confirmPassword)){
+            out.println("<h1>"+ firstname +" susccessfully registered</h1");
+            out.println("</body>");
+
+            try {
+                databaseConnection(firstname, lastname, username, password);
+            } catch (SQLException e) {
+                out.println(e);
+                displayError(e);
+                throw new RuntimeException(e);
+            }
+        } else {
+
+            out.println("Error! </body>");
         }
-    }
 
+    }
 
     public void databaseConnection(String firstname, String lastname, String username,String password) throws SQLException {
         System.out.println("Creating User Object");
