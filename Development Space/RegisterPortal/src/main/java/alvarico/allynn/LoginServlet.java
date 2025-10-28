@@ -80,6 +80,7 @@ public class LoginServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         System.out.println("create html content");
         out.println("<html>");
+        out.println("<head><title>Player Profile</title><link rel=\"stylesheet\" href=\"css/player.css\" type=\"text/css\"></head>" );
         out.println("<body class=\"flex justify-center my-[20%]\">");
         out.println("<div class=\"card-header\">Welcome back! " + user.getFullName() + "</div>");
         out.println("<section class=\"card-body\"> <ul> <li>Gamer Tag: " + user.getGamerTag() + "</li>");
