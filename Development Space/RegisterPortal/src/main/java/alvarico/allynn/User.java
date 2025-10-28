@@ -3,7 +3,7 @@ package alvarico.allynn;
 public class User {
     private String first_name;
     private String last_name;
-    private String email;
+//    private String email;
     private String gamerTag;
     private String password;
     private int balance;
@@ -11,10 +11,18 @@ public class User {
     public User(String first_name, String last_name, String gamerTag, String password) {
         this.first_name = first_name;
         this.last_name = last_name;
-        this.email = "";
+//        this.email = "";
         this.gamerTag = gamerTag;
         this.password = password;
         this.balance = 500;
+    }
+
+    public User(String first_name, String last_name, String gamerTag, String password, int balance) {
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.gamerTag = gamerTag;
+        this.password = password;
+        this.balance = balance;
     }
 
     public void setFirst_name(String first_name) {
@@ -25,9 +33,9 @@ public class User {
         this.last_name = last_name;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+//    public void setEmail(String email) {
+//        this.email = email;
+//    }
 
     public void setGamerTag(String gamerTag) {
         this.gamerTag = gamerTag;

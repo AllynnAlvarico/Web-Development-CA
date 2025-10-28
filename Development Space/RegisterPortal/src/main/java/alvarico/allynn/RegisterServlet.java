@@ -9,23 +9,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class RegisterServlet extends HttpServlet {
-//    private String db_schema = "webdev";
-    private String db_schema = "tu914";
-
-    private String jdbcConnection = "jdbc:mysql://localhost:3306/";
-    private String db_userTable = "user";
-
-//    private String jdbcConnection = "jdbc:mysql://192.168.178.145:3306/";
-//    private String jdbcConnection = "jdbc:mysql://194.125.31.119:3306/";
-//    private String db_user = "webdevass1";
-//    private String db_password = "webdevelopmentassignment";
-    private String db_user = "root";
-    String db_password = "9542MEnw#";
+    private final DatabaseConnection dc = new DatabaseConnection();
     private final Connection connect;
 
     public RegisterServlet() throws SQLException {
         System.out.println("Connecting");
-        connect = DriverManager.getConnection(jdbcConnection + db_schema, db_user, db_password);
+        connect = DriverManager.getConnection(dc.getJdbc() + dc.getSchema(), dc.getUser(), dc.getPassword());
         System.out.println("Connection Established");
     }
 
@@ -86,7 +75,7 @@ public class RegisterServlet extends HttpServlet {
 
     public PreparedStatement preparedStatement(Connection connect) throws SQLException {
         System.out.println("Creating User");
-        return connect.prepareStatement("INSERT INTO " + db_userTable + " (fname, lname, gamerTag, password, balance)" + " VALUES(?, ?, ?, ?, ?)");
+        return connect.prepareStatement("INSERT INTO " + dc.getTable() + " (fname, lname, gamerTag, password, balance)" + " VALUES(?, ?, ?, ?, ?)");
     }
     public void createUser(PreparedStatement prep, User user) throws SQLException {
         prep.setString(1, user.getFirst_name());
@@ -104,7 +93,7 @@ public class RegisterServlet extends HttpServlet {
         System.out.printf("\nException Trace:%s", e);
     }
     public void displayTableData() throws SQLException {
-        ResultSet rs = connect.createStatement().executeQuery("SELECT * FROM " + db_userTable);
+        ResultSet rs = connect.createStatement().executeQuery("SELECT * FROM " + dc.getTable());
         String fname;
         String lname;
         String gamerTag;
