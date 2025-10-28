@@ -24,7 +24,8 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        response.sendRedirect("errorLogin.html");
+        System.out.println("Error Registration Processs");
     }
 
     @Override
@@ -42,12 +43,13 @@ public class LoginServlet extends HttpServlet {
             if (userHolder != null){
                 System.out.println(userHolder.getLast_name());
                 System.out.println(userHolder.getBalance());
+                creatingHTML(response, userHolder);
+            } else {
+                response.sendRedirect(request.getContextPath() + "/LoginServlet");
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
-
     }
 
     public User retrieveUser(String validGameTag, String validPassword) throws SQLException {
@@ -72,5 +74,16 @@ public class LoginServlet extends HttpServlet {
             }
         }
         return foundUser;
+    }
+
+    public void creatingHTML(HttpServletResponse response, User user) throws IOException {
+        System.out.println("Entering PrintWriter");
+        PrintWriter out = response.getWriter();
+        System.out.println("create html content");
+        out.println("<html>");
+        out.println("<body class=\"flex justify-center my-[20%]\">");
+        out.println("<div class=\"card-header\">Welcome back! " + user.getFullName() + "</div>");
+        out.println("<section class=\"card-body\"> <ul> <li>Gamer Tag: " + user.getGamerTag() + "</li>");
+        out.println("<li>Account Credit: " + user.getBalance() + "</li></ul></section></div></body></html>");
     }
 }

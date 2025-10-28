@@ -57,6 +57,10 @@ public class User {
         return last_name;
     }
 
+    public String getFullName(){
+        return getFirst_name() + " " + getLast_name();
+    }
+
     public String getGamerTag() {
         return gamerTag;
     }
