@@ -79,20 +79,32 @@ public class LoginServlet extends HttpServlet {
         System.out.println("Entering PrintWriter");
         PrintWriter out = response.getWriter();
         System.out.println("create html content");
-        out.println("<html>");
-        out.println(
-        """
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-            <title>Player Profile</title>
-            <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-            <link rel="stylesheet" href="css/index.css" type="text/css">
-            <link rel="stylesheet" href="css/player.css" type="text/css">
-        </head>""");
-        out.println("<body class=\"flex justify-center my-[20%]\">");
-        out.println("<div class=\"card-header\">Welcome back! " + user.getFullName() + "</div>");
-        out.println("<section class=\"card-body\"> <ul> <li>Gamer Tag: " + user.getGamerTag() + "</li>");
-        out.println("<li>Account Credit: " + user.getBalance() + "</li></ul></section></div></body></html>");
+        out.println(htmlFile(user));
+        System.out.println("Finished generating html file");
+    }
+
+    public String htmlFile(User user) {
+        return """
+        <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                <title>Player Profile</title>
+                <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+                <link rel="stylesheet" href="css/index.css" type="text/css">
+                <link rel="stylesheet" href="css/player.css" type="text/css">
+            </head>
+            <body class="flex justify-center my-[20%%]">
+               <div class="card-header">Welcome back! %s
+               <section class="card-body">
+                    <ul>
+                        <li>Gamer Tag: %s </li>
+                        <li>Account Credit: %.2f</li>
+                    </ul>
+                </section>
+                </div>
+            </body>
+        </html>
+                """.formatted(user.getGamerTag(), user.getGamerTag(), user.getBalance());
     }
 }

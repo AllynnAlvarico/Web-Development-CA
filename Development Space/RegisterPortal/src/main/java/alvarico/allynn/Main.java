@@ -1,6 +1,7 @@
 package alvarico.allynn;
 
 import javax.servlet.ServletException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 
 public class Main {
@@ -8,9 +9,10 @@ public class Main {
         RegisterServlet rs = new RegisterServlet();
         LoginServlet ls = new LoginServlet();
 
-        testInput(rs);
-        retrieveData(ls);
-        displayAllData(rs);
+//        testInput(rs);
+//        retrieveData(ls);
+//        displayAllData(rs);
+
     }
     public static void testInput(RegisterServlet rs) throws SQLException {
         rs.databaseConnection("gamura", "daughter", "GOTG", "peterquill");
