@@ -63,10 +63,11 @@ input {
     padding: 6px 12px;
 }
 
-button {
+a, button {
     border: #03213Cff 2px solid;
     background-color: #0784A2ff;
     color: white;
+    text-align: center;
     width: 25%;
     margin-bottom: 26px;
     padding: 12px 6px;
