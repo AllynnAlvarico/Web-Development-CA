@@ -31,7 +31,7 @@ public class UserCreationService {
         for (int i = 1; i <= 3; i++) {
             user.addProduct(ps.createAnotherProduct("Product " + i, "Description for product " + i, 10.0 * i));
         }
-        
+
         user.addProduct(ps.createAnotherProduct("Another Product", "Another product description.", 29.99));
 
         return "Product added to user";
