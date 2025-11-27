@@ -79,12 +79,18 @@ public class PlayerServlet extends HttpServlet{
             // example on the input is +1 then click on spend this triggers the else because since credit or input is less than
             // the balance hence will proceed with the process
             if (credit > balance){
-                System.out.println("Cannot spend more money as balance is 0");
-                outputMessage = bannerError(true, "Cannot Spend Money");
+                if (balance == 0) {
+                    System.out.println("Cannot spend more money as balance is 0");
+                    outputMessage = bannerError(true, "Cannot spend more money as balance is 0");
+                } else {
+                    System.out.println("Insufficient funds");
+                    outputMessage = bannerError(true, "Insufficient funds");
+                }
             } else {
                 newBalance = balance - credit;
                 System.out.println("New Balance is " + newBalance);
                 userHolder.setBalance(newBalance);
+                outputMessage = bannerError(false, "");
                 playerUpdateBalance(gamerTag, newBalance);
             }
         }
