@@ -1,11 +1,14 @@
 package alvarico.allynn.model;
 
+import java.util.ArrayList;
+
 public class User {
     private String fname;
     private String lname;
     private String username;
     private String password;
     private String email;
+    private ArrayList<Product> products;
     public User() {
 
     }
@@ -16,6 +19,7 @@ public class User {
         this.username = username;
         this.password = password;
         this.email = email;
+        this.products = new ArrayList<>();
     }
 
     public void setFname(String fname) {
@@ -60,5 +64,13 @@ public class User {
 
     public String fullName() {
         return this.fname + " " + this.lname;
+    }
+
+    public void addProduct(Product product) {
+        this.products.add(product);
+    }
+
+    public ArrayList<Product> getProducts() {
+        return products;
     }
 }
