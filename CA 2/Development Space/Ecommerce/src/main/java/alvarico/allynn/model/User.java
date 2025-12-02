@@ -3,32 +3,28 @@ package alvarico.allynn.model;
 import java.util.ArrayList;
 
 public class User {
-    private String fname;
-    private String lname;
+    // private String fullname;
     private String username;
     private String password;
-    private String email;
-    private ArrayList<Product> products;
+    // private ArrayList<String> products;
     public User() {
 
     }
 
-    public User(String fname, String lname, String username, String password, String email) {
-        this.fname = fname;
-        this.lname = lname;
+    public User(String fullname, String username, String password) {
+        // this.fullname = fullname;
         this.username = username;
         this.password = password;
-        this.email = email;
-        this.products = new ArrayList<>();
+        // this.products = new ArrayList<>();
+    }
+    public User(String username, String password) {
+        this.username = username;
+        this.password = password;
     }
 
-    public void setFname(String fname) {
-        this.fname = fname;
-    }
-
-    public void setLname(String lname) {
-        this.lname = lname;
-    }
+    // public void setFullname(String fname) {
+    //     this.fullname = fname;
+    // }
 
     public void setUsername(String username) {
         this.username = username;
@@ -38,17 +34,9 @@ public class User {
         this.password = password;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getFname() {
-        return fname;
-    }
-
-    public String getLname() {
-        return lname;
-    }
+    // public String getFullname() {
+    //     return fullname;
+    // }
 
     public String getUsername() {
         return username;
@@ -58,19 +46,11 @@ public class User {
         return password;
     }
 
-    public String getEmail() {
-        return email;
-    }
+    // public void addProduct(String product) {
+    //     this.products.add(product);
+    // }
 
-    public String fullName() {
-        return this.fname + " " + this.lname;
-    }
-
-    public void addProduct(Product product) {
-        this.products.add(product);
-    }
-
-    public ArrayList<Product> getProducts() {
-        return products;
-    }
+    // public ArrayList<String> getProducts() {
+    //     return products;
+    // }
 }

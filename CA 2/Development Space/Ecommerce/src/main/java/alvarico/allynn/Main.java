@@ -9,14 +9,15 @@ public class Main {
         UserCreationService ucs = new UserCreationService();
 
         ucs.createUser();
-        ucs.addProductToUser();
+        // ucs.addProductToUser();
 
         System.out.println("User and product setup complete.");
-        System.out.println(ucs.getUser().fullName());
-
-        for (var product : ucs.getUserProducts()) {
-            System.out.println("Product: " + product.getName() + ", Price: " + product.getPrice());
-        }
+        System.out.println("User" + ucs.getUser().getUsername());
+        // System.out.println(ucs.getUser().getFullname());
+        // System.out.println("Display Products");
+        // for (int index = 0; index < ucs.getUserProducts().size(); index++) {
+        //     System.out.println("Product: " + ucs.getUserProducts().get(index).toString());
+        // }
 
     }
 }
