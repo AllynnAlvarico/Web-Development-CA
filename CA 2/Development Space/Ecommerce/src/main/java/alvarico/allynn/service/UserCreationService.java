@@ -14,16 +14,16 @@ public class UserCreationService {
         String username = "alvarico123";
         String password = "securePassword!";
 
-        user = new User(fullName, username, password);
+        user = new User(username, password);
 
-        return "User created";
+        return "SUCCESS";
     }
 
     public String addProductToUser(){
         ProductCreationService ps = new ProductCreationService();
         ps.createProduct("Item 1");
         System.out.println("Product Created");
-        user.addProduct(ps.getProduct());
+        // user.addProduct(ps.getProduct());
         System.out.println("Product Added to User");
         
         // String product = ps.getProduct();
@@ -42,8 +42,8 @@ public class UserCreationService {
         return user;
     }
 
-    public ArrayList<String> getUserProducts() {
-        return user.getProducts();
-    }
+    // public ArrayList<String> getUserProducts() {
+    //     return user.getProducts();
+    // }
 
 }

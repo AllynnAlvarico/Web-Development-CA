@@ -5,9 +5,9 @@
 <struts>
     <package name="default" extends="struts-default">
 
-	<action name="register" class="RegisterClass" method ="registration">
-        <result name="SUCCESS">/tu914Success.jsp</result>
-	    <result name="FAILURE">/negative.html</result>
+	<action name="register" class="UserCreationServies" method ="createUser">
+        <result name="SUCCESS">/index.jsp</result>
+	    <result name="FAILURE">/index.html</result>
     </action>
 		
     </package>
