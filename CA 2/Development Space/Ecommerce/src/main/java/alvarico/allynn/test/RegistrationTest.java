@@ -17,7 +17,6 @@ public class RegistrationTest {
     }
 
     public void registrationTest2(String number) {
-        UserCreationService usc = new UserCreationService();
         RegistrationAction action = new RegistrationAction();
 
         action.setFullname("Allynn Alvarico");
