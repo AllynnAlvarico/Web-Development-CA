@@ -1,49 +1,31 @@
 package alvarico.allynn.service;
 
-import alvarico.allynn.model.Product;
+import alvarico.allynn.configuration.DatabaseConnection;
+import alvarico.allynn.dao.UserDAO;
 import alvarico.allynn.model.User;
-
-import java.util.ArrayList;
+import alvarico.allynn.model.Product;
 
 public class UserCreationService {
-
+    private DatabaseConnection dbConfig = new DatabaseConnection();
     private User user;
+    private UserDAO userDAO = new UserDAO(dbConfig.getLaptopSchema());
 
-    public String createUser(){
-        String fullName = "Allynn Alvarico";
-        String username = "alvarico123";
-        String password = "securePassword!";
+    public String createUser(String fullname, String username, String password, String email) {
+        try {
+            user = new User();
+            user.setFullname(fullname);
+            user.setUsername(username);
+            user.setPassword(password);
+            user.setEmail(email);
 
-        user = new User(username, password);
-
-        return "SUCCESS";
-    }
-
-    public String addProductToUser(){
-        ProductCreationService ps = new ProductCreationService();
-        ps.createProduct("Item 1");
-        System.out.println("Product Created");
-        // user.addProduct(ps.getProduct());
-        System.out.println("Product Added to User");
-        
-        // String product = ps.getProduct();
-
-        // user.addProduct(product);
-        // for (int i = 1; i <= 3; i++) {
-        //     user.addProduct(ps.createAnotherProduct("Product " + i, "Description for product " + i, 10.0 * i));
-        // }
-
-        // user.addProduct(ps.createAnotherProduct("Another Product", "Another product description.", 29.99));
-
-        return "Product added to user";
+            userDAO.registerUser(user);
+            return "SUCCESS";
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "ERROR";
+        }
     }
 
     public User getUser() {
         return user;
-    }
-
-    // public ArrayList<String> getUserProducts() {
-    //     return user.getProducts();
-    // }
-
-}
+    }}
