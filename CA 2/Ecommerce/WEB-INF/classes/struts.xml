@@ -1,16 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE struts PUBLIC
-"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
-"http://struts.apache.org/dtds/struts-2.0.dtd">
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
 
 <struts>
     <package name="default" extends="struts-default">
-
-	<action name="register" class="alvarico.allynn.action.RegisterAction" method="execute">
-            <result name="success">/register-success.jsp</result>
-            <result name="input">/register.jsp</result>
-            <result name="error">/register.jsp</result>
+        <action name="register" class="alvarico.allynn.strut.RegistrationAction" method="register">
+        	<result name="User Registered">/register-success.jsp</result>
+    		<result name="Register Unsuccessful">/register.jsp</result>
         </action>
-    </action>
-		
     </package>
 </struts>

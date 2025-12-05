@@ -26,6 +26,7 @@ public class UserCreationService {
         }
     }
 
-    public User getUser() {
+    public User getCreatedUser() {
+        System.out.println("Getting all data strut/action 'RegistrationAction' class");
         return user;
     }}
