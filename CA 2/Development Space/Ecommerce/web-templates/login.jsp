@@ -1,6 +1,8 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <html>
     <head>
-        <title>Home</title>
+        <title>Login</title>
     </head>
     <body>
         <h1>eCommerce Home</h1>

@@ -9,8 +9,10 @@ public class RegistrationAction {
     public String register() {
         String outputResult = service.createUser(fullname, username, password, email);
         if (outputResult.equals("SUCCESS")){
+            System.out.println("user is registered");
             return "User Registered";
         } else {
+            System.out.println("user is not registered");
             return "Register Unsuccessful";
         }
     }
