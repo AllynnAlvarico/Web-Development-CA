@@ -10,20 +10,20 @@
             <h2>User Registration</h2>
             <s:form action="register" method="post">
                 <div>
-                    <label for="fullname">Full Name:</label>
-                    <s:textfield id="fullname" name="fullname"/>
+<%--                    <label for="fullname"></label>--%>
+                    Full Name: <s:textfield id="fullname" name="fullname"/>
                 </div>
                 <div>
-                    <label for="username">Username:</label>
-                    <s:textfield id="username" name="username"/>
+<%--                    <label for="username">Username:</label>--%>
+                    Username: <s:textfield id="username" name="username"/>
                 </div>
                 <div>
-                    <label for="email">Email:</label>
-                    <s:textfield id="email" name="email"/>
+<%--                    <label for="email">Email:</label>--%>
+                    Email: <s:textfield id="email" name="email"/>
                 </div>
                 <div>
                     <label for="password">Password:</label>
-                    <s:password id="password" name="password"/>
+                    Password: <s:password id="password" name="password"/>
                 </div>
                 <s:submit value="Register"/>
             </s:form>

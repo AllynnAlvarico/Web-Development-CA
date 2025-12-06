@@ -13,11 +13,11 @@
                 <h1>Login Window</h1>
                 <div>
 <%--                    <label for="username">Username:</label>--%>
-                    Username: <s:textfield id="username" />
+                    Username: <s:textfield id="username" name="username"/>
                 </div>
                 <div>
 <%--                    <label for="password">Password:</label>--%>
-                    Password: <s:password id="password" />
+                    Password: <s:password id="password" name="password" />
                 </div>
                 <s:submit value="Login"/>
             </s:form>

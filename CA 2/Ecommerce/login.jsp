@@ -2,7 +2,7 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <html>
     <head>
-        <title>Login</title>
+        <title>User Login</title>
     </head>
     <body>
         <h1>eCommerce Home</h1>
@@ -12,12 +12,12 @@
             <s:form action="login" method="post">
                 <h1>Login Window</h1>
                 <div>
-                    <label for="username">Username:</label>
-                    <s:textfield id="username" />
+<%--                    <label for="username">Username:</label>--%>
+                    Username: <s:textfield id="username" name="username"/>
                 </div>
                 <div>
-                    <label for="password">Password:</label>
-                    <s:password id="password" />
+<%--                    <label for="password">Password:</label>--%>
+                    Password: <s:password id="password" name="password" />
                 </div>
                 <s:submit value="Login"/>
             </s:form>
