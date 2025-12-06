@@ -2,6 +2,7 @@ package alvarico.allynn;
 
 import alvarico.allynn.model.User;
 import alvarico.allynn.service.UserCreationService;
+import alvarico.allynn.test.LoginTest;
 import alvarico.allynn.test.RegistrationTest;
 
 public class Main {
@@ -10,6 +11,12 @@ public class Main {
 
 //        registrationTest1();
 //        registrationTest2();
+        loginTest();
+        System.out.println("---------------------");
+        loginTest("test10", "testpass10");
+        System.out.println("---------------------");
+        loginTest("test101", "testpass101");
+        System.out.println("---------------------");
 
     }
 
@@ -45,5 +52,39 @@ public class Main {
 
         /** Issue is Fixed on registering
          * **/
+    }
+
+    public static void loginTest() {
+        System.out.println("Starting Login Test...");
+        LoginTest loginTest = new LoginTest();
+        loginTest.loginTest();
+        System.out.println("Login Test Completed.");
+
+        /** Issue 1: Wrong Database selection
+         * Had issue with unknown database but its an easy fix on the DatabaseConnection class
+         * just need to change from tu914 from laptop database to webdev for desktop database
+         * */
+
+        /** Issue: Fixed
+         * The issue was I was still calling the the same schema in laptop then I had to change the pc connection
+         * to a 'getPcSchema()' method to return the webdev schema then add it to the connection url for pc
+         */
+    }
+
+    public static void loginTest(String inputUsername, String inputPassword) {
+        System.out.println("Starting Login Test 2...");
+        LoginTest loginTest = new LoginTest();
+        loginTest.loginTest(inputUsername, inputPassword);
+        System.out.println("Login Test 2 Completed.");
+
+        /**
+         * Test Passed with different credentials
+         */
+
+        /**
+         * Test Passed with invalid credentials
+         * returned null user as expected and showed login failed message
+         */
+
     }
 }

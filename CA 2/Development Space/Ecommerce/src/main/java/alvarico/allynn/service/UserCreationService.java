@@ -8,7 +8,7 @@ import alvarico.allynn.model.Product;
 public class UserCreationService {
     private DatabaseConnection dbConfig = new DatabaseConnection();
     private User user;
-    private UserDAO userDAO = new UserDAO(dbConfig.getLaptopSchema());
+    private UserDAO userDAO = new UserDAO(dbConfig.getPcSchema());
 
     public String createUser(String fullname, String username, String password, String email) {
         try {

@@ -8,26 +8,39 @@ public class DatabaseConnection {
     //    private String jdbcConnection = "jdbc:mysql://192.168.178.145:3306/"; local network connection to my database server
 //    private String jdbcConnection = "jdbc:mysql://194.125.24.208:3306/"; //outside connection to my database server
     private String jdbcConnection = "jdbc:mysql://localhost:3306/"; //outside connection to my database server
-    private String schema = "tu914";
-    private String db_userTable = "user";
+    private String schema = "webdev";
+//    private String db_userTable = "user";
     private String db_productTable = "product";
 
-    public Connection getConnection() throws SQLException {
+    public Connection getLaptopConnection() throws SQLException {
         return DriverManager.getConnection(
                 getConnectionUrl(),
                 getLaptopUser(),
                 getLaptopPassword()
         );
     }
+
+    public Connection getDesktopConnection() throws SQLException {
+        return DriverManager.getConnection(
+                getPcConnectionUrl(),
+                getPCUser(),
+                getPCPassword()
+        );
+    }
+
     public String getConnectionUrl() {
         return jdbcConnection + schema;
+    }
+
+    public String getPcConnectionUrl() {
+        return jdbcConnection + getPcSchema();
     }
 
     public void setSchema(String schemaName) {
         this.schema = schemaName;
     }
 
-    public String pcSchema() {
+    public String getPcSchema() {
         return "webdev";
     }
 
@@ -67,7 +80,7 @@ public class DatabaseConnection {
         return jdbcConnection;
     }
 
-    public String getTable() {
-        return db_userTable;
-    }
+//    public String getTable() {
+//        return db_userTable;
+//    }
 }

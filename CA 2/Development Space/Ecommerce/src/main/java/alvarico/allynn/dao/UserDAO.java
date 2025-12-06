@@ -17,7 +17,7 @@ public class UserDAO {
     public void registerUser(User user) throws SQLException {
         dbConfig.setSchema(this.schemaName);
         String sql = "INSERT INTO user_table (fullname, username, password, email) VALUES (?, ?, ?, ?)";
-        try (Connection conn = dbConfig.getConnection();
+        try (Connection conn = dbConfig.getDesktopConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, user.getFullname());
             pstmt.setString(2, user.getUsername());
@@ -29,8 +29,8 @@ public class UserDAO {
 
     public User validateUser(String username, String password) {
         dbConfig.setSchema(this.schemaName);
-        String sql = "SELECT * FROM user WHERE username = ? AND password = ?";
-        try (Connection conn = dbConfig.getConnection();
+        String sql = "SELECT * FROM user_table WHERE username = ? AND password = ?";
+        try (Connection conn = dbConfig.getDesktopConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, username);
             pstmt.setString(2, password);

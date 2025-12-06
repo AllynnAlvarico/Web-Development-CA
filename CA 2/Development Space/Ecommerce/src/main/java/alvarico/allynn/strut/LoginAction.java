@@ -3,6 +3,7 @@ package alvarico.allynn.strut;
 import alvarico.allynn.model.User;
 import alvarico.allynn.service.UserAuthenticationService;
 import com.opensymphony.xwork2.ActionContext;
+
 import java.util.Map;
 
 public class LoginAction {
@@ -12,12 +13,14 @@ public class LoginAction {
 
     private UserAuthenticationService authService = new UserAuthenticationService();
 
-    public String execute() {
+    public String login() {
         User user = authService.authenticateUser(username, password);
+
         if (user != null) {
             Map<String, Object> session = ActionContext.getContext().getSession();
-            session.put("loggedUser", user.getUsername());
+            session.put("currentUser", user.getUsername());
             session.put("fullName", user.getFullname());
+            session.put("email", user.getEmail());
             return "success";
         } else {
             return "error";
@@ -25,5 +28,10 @@ public class LoginAction {
     }
 
     public void setUsername(String username) { this.username = username; }
+
     public void setPassword(String password) { this.password = password; }
+
+    public String getUsername() { return username; }
+
+    public String getPassword() { return password; }
 }
