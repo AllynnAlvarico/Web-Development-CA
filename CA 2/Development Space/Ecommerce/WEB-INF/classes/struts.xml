@@ -4,10 +4,22 @@
     "http://struts.apache.org/dtds/struts-2.0.dtd">
 
 <struts>
+
     <package name="default" extends="struts-default">
         <action name="register" class="alvarico.allynn.strut.RegistrationAction" method="register">
         	<result name="User Registered">/register-success.jsp</result>
     		<result name="Register Unsuccessful">/register.jsp</result>
         </action>
+
+        <action name="login" class="alvarico.allynn.strut.LoginAction" method="login">
+<!--            change the routing when it works -->
+<!--            will put the dashboard page here-->
+            <result name="success">/index.jsp</result>
+            <result name="error">/login.jsp</result>
+        </action>
     </package>
+
+
+
+
 </struts>

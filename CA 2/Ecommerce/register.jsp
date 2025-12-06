@@ -8,25 +8,25 @@
     <body>
         <section>
             <h2>User Registration</h2>
-            <form action="register.action" method="post">
+            <s:form action="register" method="post">
                 <div>
                     <label for="fullname">Full Name:</label>
-                    <input type="text" id="fullname" name="fullname" required/><br/><br/>
+                    <s:textfield id="fullname" name="fullname"/>
                 </div>
                 <div>
                     <label for="username">Username:</label>
-                    <input type="text" id="username" name="username" required/><br/><br/>
+                    <s:textfield id="username" name="username"/>
                 </div>
                 <div>
                     <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required/><br/><br/>
+                    <s:textfield id="email" name="email"/>
                 </div>
                 <div>
                     <label for="password">Password:</label>
-                    <input type="password" id="password" name="password" required/><br/><br/>
+                    <s:password id="password" name="password"/>
                 </div>
-                <input type="submit" value="Register"/>
-            </form>
+                <s:submit value="Register"/>
+            </s:form>
         </section>
         <p><a href="login.jsp">Already have account? Login</a></p>
     </body>

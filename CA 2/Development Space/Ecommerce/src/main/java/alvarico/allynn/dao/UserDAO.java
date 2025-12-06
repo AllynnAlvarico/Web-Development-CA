@@ -47,9 +47,4 @@ public class UserDAO {
         }
         return null;
     }
-
-    public List<User> getAllUsers() {
-        List<User> users = new ArrayList<>();
-        return users;
-    }
 }

@@ -14,17 +14,20 @@ public class LoginAction {
     private UserAuthenticationService authService = new UserAuthenticationService();
 
     public String login() {
+        System.out.println(this.getClass().getName() +  ": Login attempt for user: " + username);
         User user = authService.authenticateUser(username, password);
 
         if (user != null) {
-            Map<String, Object> session = ActionContext.getContext().getSession();
+            Map<String, String> session = ActionContext.getContext().getSession();
             session.put("currentUser", user.getUsername());
             session.put("fullName", user.getFullname());
             session.put("email", user.getEmail());
+
             return "success";
         } else {
             return "error";
         }
+
     }
 
     public void setUsername(String username) { this.username = username; }

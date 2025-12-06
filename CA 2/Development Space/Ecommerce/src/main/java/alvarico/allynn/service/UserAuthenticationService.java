@@ -10,12 +10,13 @@ public class UserAuthenticationService {
     private UserDAO userDAO = new UserDAO(dbConfig.getLaptopSchema());
 
     public User authenticateUser(String username, String password) {
-        System.out.println("Authenticating user: " + username);
-        return userDAO.validateUser(username, password);
+        System.out.println(this.getClass().getName() +  ": Authenticating user: " + username);
+        user = userDAO.validateUser(username, password);
+        return user;
     }
 
     public User getUserFromDatabase() {
-        System.out.println("Loading User from database");
+        System.out.println(this.getClass().getName() +  ": Loading User from database");
         return user;
     }
 }
