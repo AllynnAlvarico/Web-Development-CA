@@ -28,6 +28,7 @@ public class UserDAO {
     }
 
     public User validateUser(String username, String password) {
+        System.out.println(this.getClass().getName() +  ": Validating user: " + username);
         dbConfig.setSchema(this.schemaName);
         String sql = "SELECT * FROM user_table WHERE username = ? AND password = ?";
         try (Connection conn = dbConfig.getDesktopConnection();
@@ -40,6 +41,7 @@ public class UserDAO {
                 user.setFullname(rs.getString("fullname"));
                 user.setUsername(rs.getString("username"));
                 user.setEmail(rs.getString("email"));
+                System.out.println(this.getClass().getName() +  ": User validated: " + username);
                 return user;
             }
         } catch (SQLException e) {

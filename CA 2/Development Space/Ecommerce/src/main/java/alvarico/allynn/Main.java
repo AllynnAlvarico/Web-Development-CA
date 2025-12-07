@@ -2,6 +2,7 @@ package alvarico.allynn;
 
 import alvarico.allynn.model.User;
 import alvarico.allynn.service.UserCreationService;
+import alvarico.allynn.strut.LoginAction;
 import alvarico.allynn.test.LoginTest;
 import alvarico.allynn.test.RegistrationTest;
 
@@ -12,11 +13,15 @@ public class Main {
 //        registrationTest1();
 //        registrationTest2();
 //        loginTest();
-        System.out.println("---------------------");
-        loginTest("echo1", "123");
-        System.out.println("---------------------");
-//        loginTest("test101", "testpass101");
 //        System.out.println("---------------------");
+//        loginTest("echo1", "123");
+//        System.out.println("---------------------");
+////        loginTest("test101", "testpass101");
+//        System.out.println("---------------------");
+
+//        LoginAction la = new LoginAction();
+//
+//        la.login();
 
     }
 
