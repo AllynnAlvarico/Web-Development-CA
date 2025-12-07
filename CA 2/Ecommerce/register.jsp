@@ -22,7 +22,7 @@
                     Email: <s:textfield id="email" name="email"/>
                 </div>
                 <div>
-                    <label for="password">Password:</label>
+<%--                    <label for="password">Password:</label>--%>
                     Password: <s:password id="password" name="password"/>
                 </div>
                 <s:submit value="Register"/>

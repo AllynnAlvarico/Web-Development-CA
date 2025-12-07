@@ -12,14 +12,8 @@
         </action>
 
         <action name="login" class="alvarico.allynn.strut.LoginAction" method="login">
-<!--            change the routing when it works -->
-<!--            will put the dashboard page here-->
-            <result name="success">/index.jsp</result>
-            <result name="error">/login.jsp</result>
+            <result name="success">/dashboard.jsp</result>
+            <result name="error">/login-error.jsp</result>
         </action>
     </package>
-
-
-
-
 </struts>

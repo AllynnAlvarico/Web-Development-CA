@@ -11,12 +11,12 @@ public class Main {
 
 //        registrationTest1();
 //        registrationTest2();
-        loginTest();
+//        loginTest();
         System.out.println("---------------------");
-        loginTest("test10", "testpass10");
+        loginTest("echo1", "123");
         System.out.println("---------------------");
-        loginTest("test101", "testpass101");
-        System.out.println("---------------------");
+//        loginTest("test101", "testpass101");
+//        System.out.println("---------------------");
 
     }
 
