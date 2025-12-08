@@ -20,5 +20,10 @@
             <result name="success">/dashboard.jsp</result>
             <result name="error">/login-error.jsp</result>
         </action>
+
+        <action name="addProduct" class="alvarico.allynn.strut.ProductAction" method="create">
+            <result name="success">/product-success.jsp</result>
+            <result name="error">/product-error.jsp</result>
+        </action>
     </package>
 </struts>

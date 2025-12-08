@@ -8,7 +8,7 @@
     <package name="default" extends="struts-default">
 
         <action name="listProducts" class="alvarico.allynn.strut.ProductAction" method="list">
-            <result name="success" type="redirect">/index.jsp</result>
+            <result name="success">/index.jsp</result>
         </action>
 
         <action name="register" class="alvarico.allynn.strut.RegistrationAction" method="register">
@@ -19,6 +19,11 @@
         <action name="login" class="alvarico.allynn.strut.LoginAction" method="login">
             <result name="success">/dashboard.jsp</result>
             <result name="error">/login-error.jsp</result>
+        </action>
+
+        <action name="addProduct" class="alvarico.allynn.strut.ProductAction" method="create">
+            <result name="success">/product-success.jsp</result>
+            <result name="error">/product-error.jsp</result>
         </action>
     </package>
 </struts>

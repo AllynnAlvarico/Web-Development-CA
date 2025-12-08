@@ -20,6 +20,14 @@
         <p>Logged in as: <b><s:property value="#session.currentUser"/></b></p>
         <p>Fullname: <b><s:property value="#session.fullName"/></b></p>
         <p>User Email: <b><s:property value="#session.email"/></b></p>
+        <section>
+            <h2>Products</h2>
+            <s:form action="addProduct" method="post">
+                <s:textfield name="name" label="Product Name"/>
+                <s:textfield  name="description" label="Description"/>
+                <s:submit value="Add"/>
+            </s:form>
+        </section>
 
 <%--        <h1>Java Variable</h1>--%>
 <%--        <p>Logged in as: <b><s:property value="username"/></b></p>--%>

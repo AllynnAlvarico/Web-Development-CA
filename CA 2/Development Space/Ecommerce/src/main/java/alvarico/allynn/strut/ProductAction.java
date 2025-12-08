@@ -25,8 +25,10 @@ public class ProductAction {
     public String create() {
         String result = creationService.createProduct(name, description);
         if ("SUCCESS".equals(result)) {
+            System.out.println("ProductAction: product created OK: " + name);
             return "success";
         } else {
+            System.out.println("ProductAction: Error creating product - " + result);
             return "error";
         }
     }
