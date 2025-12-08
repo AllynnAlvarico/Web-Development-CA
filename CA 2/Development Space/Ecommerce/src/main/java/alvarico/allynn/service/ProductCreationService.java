@@ -2,38 +2,36 @@ package alvarico.allynn.service;
 
 // import alvarico.allynn.model.Product;
 
+import alvarico.allynn.configuration.DatabaseConnection;
+import alvarico.allynn.dao.ProductDAO;
+import alvarico.allynn.model.Product;
+
 public class ProductCreationService {
-    private String product;
 
-    public String createProduct(String prodName){
-        setPName(prodName);
-        return "Product created";
+    private DatabaseConnection dbConfig = new DatabaseConnection();
+    private Product product;
+    private ProductDAO productDAO = new ProductDAO(dbConfig.getPcSchema());
+
+    public String createProduct(String name, String description) {
+        try {
+            product = new Product();
+            product.setName(name);
+            product.setDescription(description);
+
+            productDAO.addProduct(product);
+            return "SUCCESS";
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "ERROR";
+        }
     }
-    public void setPName(String prodName){
-        this.product = prodName;
+
+    public String toString() {
+        return """
+                Product Creation Service: {
+                    Product ID: %d,
+                    Product Name: %s,
+                    Product Description: %s
+                }""".formatted(product.getId(), product.getName(), product.getDescription());
     }
-
-    public String getProduct() {
-        return this.product;
-    }
-
-//     private Product product;
-//     public String createProduct(){
-//         String productName = "Sample Product";
-//         String productDescription = "This is a sample product description.";
-//         double productPrice = 19.99;
-
-//         this.product = new Product(productName, productDescription, productPrice);
-
-//         return "Product created";
-//     }
-
-//     public Product createAnotherProduct(String name, String description, double price){
-//         this.product = new Product(name, description, price);
-//         return this.product;
-//     }
-
-//     public Product getProduct() {
-//         return this.product;
-//     }
 }

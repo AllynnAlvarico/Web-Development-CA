@@ -3,7 +3,6 @@ package alvarico.allynn.service;
 import alvarico.allynn.configuration.DatabaseConnection;
 import alvarico.allynn.dao.UserDAO;
 import alvarico.allynn.model.User;
-import alvarico.allynn.model.Product;
 
 public class UserCreationService {
     private DatabaseConnection dbConfig = new DatabaseConnection();

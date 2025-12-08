@@ -6,6 +6,11 @@
 <struts>
 
     <package name="default" extends="struts-default">
+
+        <action name="listProducts" class="alvarico.allynn.strut.ProductAction" method="list">
+            <result name="success" type="redirect">/index.jsp</result>
+        </action>
+
         <action name="register" class="alvarico.allynn.strut.RegistrationAction" method="register">
         	<result name="User Registered">/register-success.jsp</result>
     		<result name="Register Unsuccessful">/register.jsp</result>

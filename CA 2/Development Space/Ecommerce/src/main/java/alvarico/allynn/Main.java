@@ -1,9 +1,7 @@
 package alvarico.allynn;
 
-import alvarico.allynn.model.User;
-import alvarico.allynn.service.UserCreationService;
-import alvarico.allynn.strut.LoginAction;
 import alvarico.allynn.test.LoginTest;
+import alvarico.allynn.test.ProductTest;
 import alvarico.allynn.test.RegistrationTest;
 
 public class Main {
@@ -22,6 +20,10 @@ public class Main {
 //        LoginAction la = new LoginAction();
 //
 //        la.login();
+//        productRetrievalTest();
+//        productAdditionTest();
+        productActionListTest();
+
 
     }
 
@@ -90,6 +92,28 @@ public class Main {
          * Test Passed with invalid credentials
          * returned null user as expected and showed login failed message
          */
+    }
 
+    public static void productRetrievalTest() {
+        ProductTest prt = new ProductTest();
+        prt.productRetrievalTest();
+
+        /** Test Passed
+         * Able to retrieve products from database and display them in the console
+         * **/
+    }
+    public static void productAdditionTest() {
+        ProductTest prt = new ProductTest();
+        prt.productAdditionTest();
+        /** Test Passed
+         * Able to add products to database via backend
+         * **/
+    }
+    public static void productActionListTest() {
+        ProductTest prt = new ProductTest();
+        prt.runProductActionList();
+        /** Test Passed
+         * Able to retrieve products using ProductAction class and display them in the console
+         * **/
     }
 }

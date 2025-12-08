@@ -19,13 +19,13 @@
         <h1>Session Variable</h1>
         <p>Logged in as: <b><s:property value="#session.currentUser"/></b></p>
         <p>Fullname: <b><s:property value="#session.fullName"/></b></p>
-        <p>Logged in as: <b><s:property value="session.email"/></b></p>
+        <p>User Email: <b><s:property value="#session.email"/></b></p>
 
-        <h1>Java Variable</h1>
-        <p>Logged in as: <b><s:property value="username"/></b></p>
-        <p>Fullname <b><s:property value="fullname"/></b></p>
-        <p>Email: <b><s:property value="email"/></b></p>
-        <p>Password: <b><s:property value="getPassword()"/></b></p>
+<%--        <h1>Java Variable</h1>--%>
+<%--        <p>Logged in as: <b><s:property value="username"/></b></p>--%>
+<%--        <p>Fullname <b><s:property value="fullname"/></b></p>--%>
+<%--        <p>Email: <b><s:property value="email"/></b></p>--%>
+<%--        <p>Password: <b><s:property value="getPassword()"/></b></p>--%>
 
 
 <%--        </s:iterator>--%>

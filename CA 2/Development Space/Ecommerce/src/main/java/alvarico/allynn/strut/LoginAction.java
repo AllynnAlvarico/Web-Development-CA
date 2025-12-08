@@ -1,10 +1,12 @@
 package alvarico.allynn.strut;
 
+import alvarico.allynn.model.Product;
 import alvarico.allynn.model.User;
 import alvarico.allynn.service.UserAuthenticationService;
 import com.opensymphony.xwork2.ActionContext;
 import org.apache.struts2.interceptor.SessionAware;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -16,6 +18,7 @@ public class LoginAction implements SessionAware {
     private String username;
     private String password;
     private String email;
+//    ArrayList<Product> productList = new ArrayList<>();
 
     private UserAuthenticationService authService = new UserAuthenticationService();
 
@@ -50,6 +53,7 @@ public class LoginAction implements SessionAware {
             session.put("currentUser", username);
             session.put("fullName", fullname);
             session.put("email", email);
+//            session.put("productList", productList);
             System.out.println(this.getClass().getName() + ": Login action completed.");
             return "success";
         } else {
@@ -85,5 +89,9 @@ public class LoginAction implements SessionAware {
     @Override
     public void setSession(Map session) {
         this.session = session;
+    }
+
+    public Map<String, Object> getSession() {
+        return session;
     }
 }
