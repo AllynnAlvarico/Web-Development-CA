@@ -23,6 +23,7 @@ public class LoginAction implements SessionAware {
     private UserAuthenticationService authService = new UserAuthenticationService();
 
     public LoginAction() {
+        System.out.println(this.getClass().getName() + ": LoginAction constructor called.");
     }
 
     public String login() {
@@ -40,6 +41,10 @@ public class LoginAction implements SessionAware {
 //        fullname = user.getFullname();
 
         if (user != null) {
+//            System.out.println(this.getClass().getName() + ": Initializing session map.");
+            System.out.println("Clearing any existing session data.");
+            session.clear();
+            System.out.println("Session data cleared.");
 //            session = new HashMap<>();
 //            session = ActionContext.getContext().getSession();
 //            session.put("currentUser", username);
@@ -59,7 +64,15 @@ public class LoginAction implements SessionAware {
         } else {
             return "error";
         }
+    }
 
+    public String logout() {
+//        https://docs.oracle.com/javase/8/docs/api/java/util/Map.html
+        System.out.println(this.getClass().getName() + ": Logging out user: " + session.get("currentUser"));
+        System.out.println("Clearing user from map 'session' data.");
+        session.clear();
+        System.out.println("user is cleared from the map 'session' data.");
+        return "logout";
     }
 
     public void setUsername(String username) { this.username = username; }

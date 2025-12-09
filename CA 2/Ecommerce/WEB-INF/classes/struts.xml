@@ -21,9 +21,26 @@
             <result name="error">/login-error.jsp</result>
         </action>
 
+        <action name="logout" class="alvarico.allynn.strut.LoginAction" method="logout">
+            <result name="logout">/login.jsp</result>
+        </action>
+
         <action name="addProduct" class="alvarico.allynn.strut.ProductAction" method="create">
             <result name="success">/product-success.jsp</result>
             <result name="error">/product-error.jsp</result>
         </action>
+
+        <action name="listUsers"
+                class="alvarico.allynn.strut.GetAllUserAction"
+                method="list">
+            <result name="success">/all-users.jsp</result>
+        </action>
+
+        <action name="viewUser"
+                class="alvarico.allynn.strut.GetAllUserAction"
+                method="view">
+            <result name="SUCCESS">/user-profile.jsp</result>
+        </action>
+
     </package>
 </struts>

@@ -3,6 +3,7 @@ package alvarico.allynn;
 import alvarico.allynn.test.LoginTest;
 import alvarico.allynn.test.ProductTest;
 import alvarico.allynn.test.RegistrationTest;
+import alvarico.allynn.test.RetrievingAllUsersTest;
 
 public class Main {
     public static void main(String[] args) {
@@ -22,7 +23,10 @@ public class Main {
 //        la.login();
 //        productRetrievalTest();
 //        productAdditionTest();
-        productActionListTest();
+//        productActionListTest();
+
+//        RetrievingAllUsersTest raut = new RetrievingAllUsersTest();
+//        raut.testList();
 
 
     }

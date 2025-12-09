@@ -12,6 +12,7 @@ public class UserDAO {
 
     public UserDAO(String schemaName) {
         this.schemaName = schemaName;
+
     }
 
     public void registerUser(User user) throws SQLException {
@@ -49,4 +50,57 @@ public class UserDAO {
         }
         return null;
     }
+
+    public List<User> getAllUsers() {
+        System.out.println(this.getClass().getName() +  ": getting all users");
+        System.out.println("Method: getAllUsers");
+        dbConfig.setSchema(this.schemaName);
+
+        List<User> users = new ArrayList<>();
+
+        String sql = "SELECT username, fullname, email FROM user_table";
+
+        try (Connection conn = dbConfig.getDesktopConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql);
+             ResultSet rs = pstmt.executeQuery()) {
+
+            while (rs.next()) {
+                User u = new User();
+                u.setUsername(rs.getString("username"));
+                u.setFullname(rs.getString("fullname"));
+                u.setEmail(rs.getString("email"));
+                users.add(u);
+            }
+            System.out.println(this.getClass().getName() +  ": Retrieved " + users.size() + " users.");
+            System.out.println("Method: getAllUsers completed");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return users;
+    }
+    public User getUserByUsername(String username) {
+        System.out.println(this.getClass().getName() +  ": getting user by username: " + username);
+        String sql = "SELECT username, fullname, email FROM user_table WHERE username = ?";
+
+        try (Connection conn = dbConfig.getDesktopConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            pstmt.setString(1, username);
+
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (rs.next()) {
+                    User u = new User();
+                    u.setUsername(rs.getString("username"));
+                    u.setFullname(rs.getString("fullname"));
+                    u.setEmail(rs.getString("email"));
+                    return u;
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
 }
