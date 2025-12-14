@@ -16,7 +16,7 @@ public class LoginTest {
         if (user != null) {
             System.out.println("LOGIN SUCCESS");
             System.out.println("Username: " + user.getUsername());
-            System.out.println("Fullname: " + user.getFullname());
+            System.out.println("Fullname: " + user.getFullName());
             System.out.println("Email: " + user.getEmail());
         } else {
             System.out.println("LOGIN FAILED (invalid username or password)");
@@ -35,7 +35,7 @@ public class LoginTest {
         if (user != null) {
             System.out.println("LOGIN SUCCESS");
             System.out.println("Username: " + user.getUsername());
-            System.out.println("Fullname: " + user.getFullname());
+            System.out.println("Fullname: " + user.getFullName());
             System.out.println("Email: " + user.getEmail());
         } else {
             System.out.println("LOGIN FAILED (invalid username or password)");

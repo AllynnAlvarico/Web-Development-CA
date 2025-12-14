@@ -25,10 +25,9 @@ public class User {
 
     public void setEmail(String email) { this.email = email; }
 
-    public String getFullname() { return fullname; }
+    public String getFullName() { return fullname; }
 
     public String getUsername() { return username; }
-
 
     public String getPassword() { return password; }
 

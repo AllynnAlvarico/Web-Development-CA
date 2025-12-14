@@ -16,7 +16,7 @@ public class RetreiveAllUsersService {
         System.out.println("UserListingService: loaded " + users.size() + " users");
         for (User u : users) {
             System.out.println(" - " + u.getUsername()
-                    + " | " + u.getFullname()
+                    + " | " + u.getFullName()
                     + " | " + u.getEmail());
         }
 

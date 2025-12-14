@@ -50,10 +50,10 @@ public class LoginAction implements SessionAware {
 //            session.put("currentUser", username);
 //            storeUsername(user);
             System.out.println("Authenticated User: " + user.getUsername());
-            System.out.println("Authenticated Fullname: " + user.getFullname());
+            System.out.println("Authenticated Fullname: " + user.getFullName());
             System.out.println("Authenticated Email: " + user.getEmail());
 
-            fullname = user.getFullname();
+            fullname = user.getFullName();
             email = user.getEmail();
             session.put("currentUser", username);
             session.put("fullName", fullname);

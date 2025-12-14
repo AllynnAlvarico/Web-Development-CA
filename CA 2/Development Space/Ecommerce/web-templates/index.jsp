@@ -13,14 +13,13 @@
             <h1 class="text-xl font-semibold text-slate-800">eCommerce Home</h1>
             <nav class="flex items-center gap-4 text-sm font-medium text-blue-600">
                 <a href="index.jsp" class="hover:underline">Home</a>
-                <a href="dashboard.jsp" class="hover:underline">Dashboard</a>
                 <a href="all-users.jsp" class="hover:underline">View all users</a>
-
                 <s:if test="#session.currentUser == null">
                     <a href="register.jsp" class="hover:underline">Register</a>
                     <a href="login.jsp" class="hover:underline">Login</a>
                 </s:if>
                 <s:else>
+                    <a href="dashboard.jsp" class="hover:underline">Dashboard</a>
                     <span class="text-black italic">User: <s:property value="#session.fullName" /></span>
                     <span class="text-slate-300">|</span>
                     <s:form action="logout" method="post" cssClass="inline">
@@ -42,6 +41,8 @@
                         <img src="https://placehold.co/200x100" alt="Product Image" width="200" height="100"/>
                         <h3 class="text-center font-semibold"><s:property value="name" /></h3>
                         <p class="text-center text-sm italic"><s:property value="description" /></p>
+                        <p class="text-center text-sm italic"><s:property value="category" /></p>
+                        <p class="text-center text-sm italic"><s:property value="price" /></p>
                 </article>
             </s:iterator>
         </section>

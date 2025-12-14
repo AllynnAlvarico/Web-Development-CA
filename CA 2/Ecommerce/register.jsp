@@ -13,14 +13,13 @@
             <h1 class="text-xl font-semibold text-slate-800">eCommerce Home</h1>
             <nav class="flex items-center gap-4 text-sm font-medium text-blue-600">
                 <a href="index.jsp" class="hover:underline">Home</a>
-                <a href="dashboard.jsp" class="hover:underline">Dashboard</a>
                 <a href="all-users.jsp" class="hover:underline">View all users</a>
-
                 <s:if test="#session.currentUser == null">
                     <a href="register.jsp" class="hover:underline">Register</a>
                     <a href="login.jsp" class="hover:underline">Login</a>
                 </s:if>
                 <s:else>
+                    <a href="dashboard.jsp" class="hover:underline">Dashboard</a>
                     <span class="text-black italic">User: <s:property value="#session.fullName" /></span>
                     <span class="text-slate-300">|</span>
                     <s:form action="logout" method="post" cssClass="inline">

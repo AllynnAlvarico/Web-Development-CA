@@ -20,7 +20,7 @@ public class UserDAO {
         String sql = "INSERT INTO user_table (fullname, username, password, email) VALUES (?, ?, ?, ?)";
         try (Connection conn = dbConfig.getDesktopConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setString(1, user.getFullname());
+            pstmt.setString(1, user.getFullName());
             pstmt.setString(2, user.getUsername());
             pstmt.setString(3, user.getPassword());
             pstmt.setString(4, user.getEmail());

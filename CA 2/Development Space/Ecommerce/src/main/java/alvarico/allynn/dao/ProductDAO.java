@@ -30,7 +30,9 @@ public class ProductDAO {
         }
     }
     public List<Product> getAllProducts() {
+        System.out.println(this.getClass().getName() + " Retrieving all products from schema " + this.schemaName);
         dbConfig.setSchema(this.schemaName);
+        System.out.println("Executing SQL line");
         String sql = "SELECT * FROM product_table";
         List<Product> products = new ArrayList<>();
         try (Connection conn = dbConfig.getDesktopConnection();
@@ -41,8 +43,17 @@ public class ProductDAO {
                 p.setId(rs.getInt("prod_id"));
                 p.setName(rs.getString("prod_name"));
                 p.setDescription(rs.getString("prod_description"));
+                p.setCategory(rs.getString("category"));
+                p.setPrice(rs.getDouble("price"));
                 products.add(p);
+
+//                System.out.println("product id: " + p.getId());
+//                System.out.println("Loaded product: " + p.getName());
+//                System.out.println("Product description: " + p.getDescription());
+//                System.out.println("Product category: " + p.getCategory());
+//                System.out.println("Product price: " + p.getPrice());
             }
+            System.out.println("End of result set");
         } catch (Exception e) {
             e.printStackTrace();
         }

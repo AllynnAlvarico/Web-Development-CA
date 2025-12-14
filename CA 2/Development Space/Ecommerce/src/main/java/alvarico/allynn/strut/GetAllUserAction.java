@@ -22,6 +22,10 @@ public class GetAllUserAction {
     public String view() {
         System.out.println(getClass().getName() + ": viewing user " + username);
         user = service.getUserByUsername(username);
+        System.out.println("User Name: " + user.getUsername());
+        System.out.println("User Full Name: " + user.getFullName());
+        System.out.println("User Email: " + user.getEmail());
+
         return "SUCCESS";
     }
 
@@ -31,5 +35,8 @@ public class GetAllUserAction {
 
     public List<User> getUsers() {
         return users;
+    }
+    public User getUser() {
+        return user;
     }
 }

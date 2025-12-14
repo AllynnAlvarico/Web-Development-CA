@@ -17,7 +17,7 @@ public class RetrievingAllUsersTest {
         users = service.getAllUsers();
         System.out.println("Total users found: " + users.size());
         for (User u : users) {
-            System.out.println("User -> username=" + u.getUsername() + ", fullname=" + u.getFullname() +", email=" + u.getEmail());
+            System.out.println("User -> username=" + u.getUsername() + ", fullname=" + u.getFullName() +", email=" + u.getEmail());
         }
         return "SUCCESS";
     }

@@ -5,6 +5,8 @@ public class Product {
     private int id;
     private String name;
     private String description;
+    private String category;
+    private double price;
 
     public Product() {
 
@@ -26,6 +28,14 @@ public class Product {
         this.description = description;
     }
 
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
     public int getId() {
         return id;
     }
@@ -36,5 +46,11 @@ public class Product {
 
     public String getDescription() {
         return description;
+    }
+    public String getCategory() {
+        return category;
+    }
+    public double getPrice() {
+        return price;
     }
 }
