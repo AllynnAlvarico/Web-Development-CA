@@ -42,5 +42,15 @@
             <result name="SUCCESS">/user-profile.jsp</result>
         </action>
 
+        <action name="placeBid" class="alvarico.allynn.strut.BidSystemAction" method="placeBid">
+            <result name="success">/dashboard.jsp</result>
+            <result name="error">/bid-error.jsp</result>
+        </action>
+
+        <action name="viewBids" class="alvarico.allynn.strut.BidSystemAction" method="viewForItem">
+            <result name="success">/dashboard.jsp</result>
+        </action>
+
+
     </package>
 </struts>

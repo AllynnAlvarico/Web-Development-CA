@@ -43,6 +43,10 @@
                         <p class="text-center text-sm italic"><s:property value="description" /></p>
                         <p class="text-center text-sm italic"><s:property value="category" /></p>
                         <p class="text-center text-sm italic"><s:property value="price" /></p>
+                    <s:form action="placeBid" method="post" cssClass="mt-2 flex justify-center">
+                    <s:hidden name="itemId" value="%{id}" />
+                    <s:submit value="Bid" cssClass="cursor-pointer rounded bg-blue-600 px-3 py-1 text-xs font-medium text-white hover:bg-blue-700"/>
+                    </s:form>
                 </article>
             </s:iterator>
         </section>
