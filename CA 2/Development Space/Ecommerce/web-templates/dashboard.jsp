@@ -89,25 +89,15 @@
             </div>
         </section>
     </main>
-    <s:form action="placeBid" method="post">
-        <s:hidden name="itemId" value="%{itemId}" />
-        <s:textfield name="amount" label="Your bid amount" />
-        <s:submit value="Place bid" />
-    </s:form>
 
-    <s:action name="viewBids" id="bidAction">
-        <s:param name="itemId" value="%{itemId}" />
-    </s:action>
-
-    <table>
-        <tr><th>Amount</th><th>Bidder</th></tr>
-        <s:iterator value="#bidAction.bids">
-            <tr>
-                <td><s:property value="amount" /></td>
-                <td><s:property value="bidderUserId" /></td>
-            </tr>
+<%--    <s:action name="viewBids" id="bidAction">--%>
+        <s:iterator value="bids">
+            Bid Id: <s:property value="bidId" />
+            Item Id: <s:property value="bidItemId" />
+            Username: <s:property value="bidderUsername" />
+            <s:property value="amount" />
         </s:iterator>
-    </table>
+<%--    </s:action>--%>
 
 
     <%--        <h1>Java Variable</h1>--%>

@@ -10,11 +10,11 @@ public class BidSystemService {
     private DatabaseConnection dbConfig = new DatabaseConnection();
     private BidDAO bidDAO = new BidDAO(dbConfig.getPcSchema());
 
-    public String placeBid(int itemId, int bidderUserId, double amount) {
+    public String placeBid(int itemId, String bidderUsername, double amount) {
         try {
             BidModel bid = new BidModel();
             bid.setBidItemId(itemId);
-            bid.setBidderUserId(bidderUserId);
+            bid.setBidderUsername(bidderUsername);
             bid.setAmount(amount);
             bidDAO.placeBid(bid);
             return "SUCCESS";

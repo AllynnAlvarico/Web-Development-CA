@@ -27,13 +27,13 @@ public class BidDAO {
     }
 
     public void placeBid(BidModel bid) throws SQLException {
-        String sql = "INSERT INTO bid_table (bid_item_id, bidder_user_id, amount) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO bid_table (bid_item_id, bidder_username, amount) VALUES (?, ?, ?)";
 
         try (Connection conn = getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setInt(1, bid.getBidItemId());
-            ps.setInt(2, bid.getBidderUserId());
+            ps.setString(2, bid.getBidderUsername());
             ps.setDouble(3, bid.getAmount());
             ps.executeUpdate();
         }
@@ -59,13 +59,12 @@ public class BidDAO {
             if (condition != -1) {
                 ps.setInt(1, condition);
             }
-
             try (ResultSet rs = ps.executeQuery()) {
                 while (rs.next()) {
                     BidModel b = new BidModel();
                     b.setBidId(rs.getInt("bid_id"));
                     b.setBidItemId(rs.getInt("bid_item_id"));
-                    b.setBidderUserId(rs.getInt("bidder_user_id"));
+                    b.setBidderUsername(rs.getString("bidder_username"));
                     b.setAmount(rs.getDouble("amount"));
                     bids.add(b);
                 }

@@ -44,10 +44,10 @@
 
         <action name="placeBid" class="alvarico.allynn.strut.BidSystemAction" method="placeBid">
             <result name="success">/dashboard.jsp</result>
-            <result name="error">/bid-error.jsp</result>
+            <result name="error">/register.jsp</result>
         </action>
 
-        <action name="viewBids" class="alvarico.allynn.strut.BidSystemAction" method="viewForItem">
+        <action name="viewBids" class="alvarico.allynn.strut.BidSystemAction" method="viewMyBids">
             <result name="success">/dashboard.jsp</result>
         </action>
 

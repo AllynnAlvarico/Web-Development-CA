@@ -1,13 +1,9 @@
 package alvarico.allynn.strut;
 
-import alvarico.allynn.model.Product;
 import alvarico.allynn.model.User;
 import alvarico.allynn.service.UserAuthenticationService;
-import com.opensymphony.xwork2.ActionContext;
 import org.apache.struts2.interceptor.SessionAware;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Map;
 
 public class LoginAction implements SessionAware {
@@ -60,6 +56,12 @@ public class LoginAction implements SessionAware {
             session.put("email", email);
 //            session.put("productList", productList);
             System.out.println(this.getClass().getName() + ": Login action completed.");
+            // Found bug here and found a solution
+            System.out.println("Creating BidSystemAction instance and setting session.");
+            BidSystemAction bidSystemAction = new BidSystemAction();
+            System.out.println(this.getClass().getName() + ": Setting session in BidSystemAction.");
+            bidSystemAction.setSession(session);
+            System.out.println("Finished setting session in BidSystemAction.");
             return "success";
         } else {
             return "error";
@@ -76,8 +78,8 @@ public class LoginAction implements SessionAware {
     }
 
     public void setUsername(String username) { this.username = username; }
-    public void setPassword(String password) { this.password = password; }
 
+    public void setPassword(String password) { this.password = password; }
 
     public void setFullname(String fullname) {
         this.fullname = fullname;
